@@ -106,6 +106,17 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
   }
 });
 
+// Timeline expand/collapse
+document.querySelectorAll('.timeline-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('open'));
+    // Toggle clicked
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
